@@ -22,6 +22,6 @@ async def start(message: Message):
     except TelegramBadRequest as e:
         # Обработка ошибок, например, если пользователь не найден
         if 'USER_ID_INVALID' in str(e) or 'PARTICIPANT_ID_INVALID' in str(e):
-            await message.answer('Вас всё ещё нет в нашей группе!')
+            await message.answer('Вас всё ещё нет в нашей группе!\nПожалуйста, вступите, чтобы продолжить.')
         else:
             await message.answer('Произошла ошибка: ' + str(e))
