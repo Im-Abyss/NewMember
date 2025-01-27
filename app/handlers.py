@@ -4,6 +4,7 @@ from aiogram.filters import CommandStart
 from aiogram.exceptions import TelegramBadRequest
 
 from config import bot
+import app.keyboards as kb
 
 router = Router()
 
@@ -15,9 +16,9 @@ async def start(message: Message):
         
         # Если пользователь найден в группе
         if result.status in ['member', 'administrator', 'creator']:
-            await message.answer('Вы состоите в группе!')
+            await message.answer('Вижу, вы уже в группе! Забрать обучающий материал можно по ссылке.', reply_markup=kb.tutorial)
         else:
-            await message.answer('Вас всё ещё нет в нашей группе!')
+            await message.answer('Чтобы продолжить, пожалуйста, вступите в нашу группу!')
     
     except TelegramBadRequest as e:
         # Обработка ошибок, например, если пользователь не найден
