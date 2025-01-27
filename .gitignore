@@ -1,5 +1,4 @@
 __pycache__/
 
 config/conf.py
-db.sqlite3
 test.py
