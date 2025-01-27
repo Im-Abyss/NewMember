@@ -12,7 +12,7 @@ router = Router()
 async def start(message: Message):
     try:
         # Проверяем статус пользователя в группе
-        result = await bot.get_chat_member(chat_id='-1002430560587', user_id=message.from_user.id)
+        result = await bot.get_chat_member(chat_id='-1002430560587', user_id=1)
         
         # Если пользователь найден в группе
         if result.status in ['member', 'administrator', 'creator']:
@@ -23,6 +23,6 @@ async def start(message: Message):
     except TelegramBadRequest as e:
         # Обработка ошибок, например, если пользователь не найден
         if 'USER_ID_INVALID' in str(e) or 'PARTICIPANT_ID_INVALID' in str(e):
-            await message.answer('Вас всё ещё нет в нашей группе!\nПожалуйста, вступите, чтобы продолжить.')
+            await message.answer('Вас всё ещё нет в нашей группе!\nПожалуйста, свяжитесь с вашим куратором 😊')
         else:
             await message.answer('Произошла ошибка: ' + str(e))
