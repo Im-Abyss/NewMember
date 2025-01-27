@@ -1,5 +1,5 @@
-from aiogram import Router
-from aiogram.types import Message
+from aiogram import Router, F
+from aiogram.types import Message, CallbackQuery, LabeledPrice
 from aiogram.filters import CommandStart
 from aiogram.exceptions import TelegramBadRequest
 
@@ -7,6 +7,7 @@ from config import bot
 import app.keyboards as kb
 
 router = Router()
+
 
 @router.message(CommandStart())
 async def start(message: Message):
@@ -23,6 +24,6 @@ async def start(message: Message):
     except TelegramBadRequest as e:
         # Обработка ошибок, например, если пользователь не найден
         if 'USER_ID_INVALID' in str(e) or 'PARTICIPANT_ID_INVALID' in str(e):
-            await message.answer('Вас всё ещё нет в нашей группе!\nПожалуйста, свяжитесь с вашим куратором 😊')
+            await message.answer('Чтобы продолжить, вы должны быть участником нашего закрытого чата.\nПожалуйста, свяжитесь с вашим куратором 😊')
         else:
             await message.answer('Произошла ошибка: ' + str(e))
