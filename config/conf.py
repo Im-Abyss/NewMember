@@ -1,3 +1,0 @@
-TOKEN = '8026321407:AAE1kBzKP7yarkYX5FxakCZWeL17wAEKvbw'
-WEATHER_API = '83156b9f060c8ff8e2a51f3f0249f5d7'
-TUTOR_URL = 'https://www.youtube.com/watch?v=1u0A3S43EiI&t=1s'
