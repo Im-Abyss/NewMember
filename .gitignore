@@ -1,4 +1,7 @@
 __pycache__/
+.venv/
+.vscode/
+.idea/
 
 config/conf.py
 test.py
